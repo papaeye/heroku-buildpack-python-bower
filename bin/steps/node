@@ -27,6 +27,11 @@ fi
 PATH=$PATH:$BUILD_DIR/.heroku/vendor/node/bin
 
 if [ ! -f $BUILD_DIR/.heroku/bower-version ]; then
+
+  # Install node packages
+  puts-step "Running npm install"
+  npm install --production
+  
   # Install bower
   puts-step "Downloading and installing bower"
   npm install -g bower 2>&1 | indent
