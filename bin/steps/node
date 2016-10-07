@@ -32,13 +32,14 @@ if [ ! -f $BUILD_DIR/.heroku/bower-version ]; then
   puts-step "Running npm install"
   npm install --production
   
-  # Install bower
-  puts-step "Downloading and installing bower"
-  npm install -g bower 2>&1 | indent
-
   # Save installed bower version in the slug for later reference
   npm list -g --depth=0 | grep bower | cut -d @ -f 2 > $BUILD_DIR/.heroku/bower-version
 fi
+
+# Install bower
+puts-step "Downloading and installing bower"
+npm install -g bower 2>&1 | indent
+
 
 # Install bower packages
 puts-step "Running bower install"
