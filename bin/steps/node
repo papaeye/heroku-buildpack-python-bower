@@ -43,3 +43,9 @@ npm install --production
 # Install bower packages
 puts-step "Running bower install"
 bower install 2>&1 | indent
+
+
+# Build Grunt assets
+puts-step "Running grunt build"
+npm install grunt-cli
+npm run build
